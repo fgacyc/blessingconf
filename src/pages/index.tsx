@@ -36,7 +36,7 @@ import Link from "next/link";
 
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import { CardForm } from "@/components/Form";
-// import { Card } from "@prisma/client";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export default function Home() {
   const cards = api.post.create.useMutation();
@@ -127,35 +127,59 @@ export default function Home() {
                     onClick={() => setModalOpen(true)}
                   />
                 </div>
-                <Swiper
-                  effect={"cards"}
-                  grabCursor={true}
-                  modules={[EffectCards]}
-                >
-                  {allCards.data?.map((c) => (
-                    <SwiperSlide
-                      key={c.id}
-                      className="flex flex-col rounded-xl border border-black/10 bg-[#ededed]"
-                      style={{
-                        boxShadow: "0 4px 10px 0 #00000040",
-                      }}
-                    >
-                      <div className="flex h-[140px] flex-col rounded-xl bg-white px-[18px] py-[21px] font-sf">
-                        <p className="text-[15px] font-bold">{c.name}</p>
-                        <p className="text-[10px]">{c.company}</p>
-                        <p className="text-[8px]">{c.position}</p>
-                      </div>
-                      <div className="flex h-[40px] flex-row items-center justify-between px-4">
-                        <p className="text-[10px]">{c.contact}</p>
-                        <Image
-                          src={connection_title}
-                          alt="Connection Title"
-                          className="max-w-[60px]"
-                        />
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
+                {allCards.data?.length === 0 ? (
+                  <div
+                    className="flex h-[180px] w-[290px] flex-col rounded-xl border border-black/10 bg-[#ededed]"
+                    style={{
+                      boxShadow: "0 4px 10px 0 #00000040",
+                    }}
+                  >
+                    <div className="flex h-[140px] w-full flex-col items-center justify-center rounded-xl bg-white px-[18px] py-[21px] font-sf">
+                      <AiOutlineLoading3Quarters
+                        size={30}
+                        color="#191d1a"
+                        className="animate-spin"
+                      />
+                    </div>
+                    <div className="flex h-[40px] flex-row items-center justify-between px-4">
+                      <Image
+                        src={connection_title}
+                        alt="Connection Title"
+                        className="max-w-[60px]"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <Swiper
+                    effect={"cards"}
+                    grabCursor={true}
+                    modules={[EffectCards]}
+                  >
+                    {allCards.data?.map((c) => (
+                      <SwiperSlide
+                        key={c.id}
+                        className="flex flex-col rounded-xl border border-black/10 bg-[#ededed]"
+                        style={{
+                          boxShadow: "0 4px 10px 0 #00000040",
+                        }}
+                      >
+                        <div className="flex h-[140px] flex-col rounded-xl bg-white px-[18px] py-[21px] font-sf">
+                          <p className="text-[15px] font-bold">{c.name}</p>
+                          <p className="text-[10px]">{c.company}</p>
+                          <p className="text-[8px]">{c.position}</p>
+                        </div>
+                        <div className="flex h-[40px] flex-row items-center justify-between px-4">
+                          <p className="text-[10px]">{c.contact}</p>
+                          <Image
+                            src={connection_title}
+                            alt="Connection Title"
+                            className="max-w-[60px]"
+                          />
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                )}
               </div>
               <div className="absolute bottom-[14px] left-1/2 flex -translate-x-1/2 flex-col items-center gap-2">
                 <p className="font-sf text-sm font-bold">Follow Us</p>
