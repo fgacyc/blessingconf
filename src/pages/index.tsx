@@ -47,7 +47,7 @@ export default function Home() {
   // cards.mutate()
 
   useEffect(() => {
-    const interval = setInterval(async () => await allCards.refetch(), 5000);
+    const interval = setInterval(async () => await allCards.refetch(), 10000);
     return () => clearInterval(interval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
