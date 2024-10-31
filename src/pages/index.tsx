@@ -205,7 +205,7 @@ export default function Home() {
                     ))}
                   </Swiper>
                 )}
-                <div className="flex w-full flex-row items-center overflow-hidden rounded-[5px] border border-[rgba(0,0,0,0.13)] bg-white p-3">
+                <div className="flex w-full flex-row items-center overflow-hidden rounded-[5px] border border-[rgba(0,0,0,0.13)] bg-white p-2 xs:p-3">
                   <input
                     placeholder="Search"
                     onChange={(e) => setSearchString(e.currentTarget.value)}
