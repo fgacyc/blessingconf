@@ -5,101 +5,101 @@
 @font-face {
   font-family: SF-Pro;
   font-weight: 100;
-  src: url("/fonts/sf-pro/thin.otf");
+  src: url("/fonts/thin.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 100;
   font-style: italic;
-  src: url("/fonts/sf-pro/thinitalic.otf");
+  src: url("/fonts/thinitalic.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 200;
-  src: url("/fonts/sf-pro/ultralight.otf");
+  src: url("/fonts/ultralight.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 200;
   font-style: italic;
-  src: url("/fonts/sf-pro/ultralightitalic.otf");
+  src: url("/fonts/ultralightitalic.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 300;
-  src: url("/fonts/sf-pro/light.otf");
+  src: url("/fonts/light.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 300;
   font-style: italic;
-  src: url("/fonts/sf-pro/lightitalic.otf");
+  src: url("/fonts/lightitalic.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 400;
-  src: url("/fonts/sf-pro/regular.otf");
+  src: url("/fonts/regular.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 400;
   font-style: italic;
-  src: url("/fonts/sf-pro/regularitalic.otf");
+  src: url("/fonts/regularitalic.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 500;
-  src: url("/fonts/sf-pro/medium.otf");
+  src: url("/fonts/medium.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 500;
   font-style: italic;
-  src: url("/fonts/sf-pro/mediumitalic.otf");
+  src: url("/fonts/mediumitalic.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 600;
-  src: url("/fonts/sf-pro/semibold.otf");
+  src: url("/fonts/semibold.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 600;
   font-style: italic;
-  src: url("/fonts/sf-pro/semibolditalic.otf");
+  src: url("/fonts/semibolditalic.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 700;
-  src: url("/fonts/sf-pro/bold.otf");
+  src: url("/fonts/bold.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 700;
   font-style: italic;
-  src: url("/fonts/sf-pro/bolditalic.otf");
+  src: url("/fonts/bolditalic.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 800;
-  src: url("/fonts/sf-pro/heavy.otf");
+  src: url("/fonts/heavy.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 800;
   font-style: italic;
-  src: url("/fonts/sf-pro/heavyitalic.otf");
+  src: url("/fonts/heavyitalic.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 900;
-  src: url("/fonts/sf-pro/black.otf");
+  src: url("/fonts/black.otf");
 }
 @font-face {
   font-family: SF-Pro;
   font-weight: 900;
   font-style: italic;
-  src: url("/fonts/sf-pro/blackitalic.otf");
+  src: url("/fonts/blackitalic.otf");
 }
 
 .fp-watermark {
