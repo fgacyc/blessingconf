@@ -24,6 +24,7 @@ import instagram from "@/images/instagram.png";
 import youtube from "@/images/youtube.png";
 import whatsapp from "@/images/whatsapp.png";
 import close_button from "@/images/close_button.png";
+import search_icon from "@/images/search.png";
 
 import { useEffect, useState } from "react";
 
@@ -37,14 +38,35 @@ import Link from "next/link";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import { CardForm } from "@/components/Form";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { type Swiper as SwiperType } from "swiper/types";
 
 export default function Home() {
   const cards = api.post.create.useMutation();
   const allCards = api.post.allCards.useQuery();
   const [en, setEn] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
+  const [searchString, setSearchString] = useState("");
+  const [swiperRef, setSwiperRef] = useState<SwiperType>();
 
   // cards.mutate()
+
+  useEffect(() => {
+    if (!swiperRef || !searchString) return;
+
+    const idx = allCards.data?.findIndex(
+      (v) =>
+        v.company.toLowerCase().includes(searchString.toLowerCase()) ||
+        v.position.toLowerCase().includes(searchString.toLowerCase()) ||
+        v.name.toLowerCase().includes(searchString.toLowerCase()) ||
+        v.contact.toLowerCase().includes(searchString.toLowerCase()),
+    );
+
+    // Slide to the found index or the previous valid index if not found
+    swiperRef.slideTo(idx ?? 0);
+
+    // swiperRef.slideTo()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchString, swiperRef]);
 
   useEffect(() => {
     const interval = setInterval(async () => await allCards.refetch(), 10000);
@@ -107,7 +129,7 @@ export default function Home() {
                 alt="Connection"
                 className="absolute left-1/2 top-[50px] max-w-[220px] -translate-x-1/2 xs:max-w-[250px]"
               />
-              <div className="mt-[43px] flex h-full flex-col items-center gap-[22px]">
+              <div className="mx-auto mt-[43px] flex h-full max-w-[300px] flex-col items-center gap-[12px]">
                 <div
                   style={{
                     boxShadow: "0 4px 10px 0 #00000040",
@@ -127,7 +149,8 @@ export default function Home() {
                     onClick={() => setModalOpen(true)}
                   />
                 </div>
-                {allCards.data?.length === 0 ? (
+
+                {allCards.data?.length === 0 || allCards.isPending ? (
                   <div
                     className="flex h-[180px] w-[290px] flex-col rounded-xl border border-black/10 bg-[#ededed]"
                     style={{
@@ -154,6 +177,8 @@ export default function Home() {
                     effect={"cards"}
                     grabCursor={true}
                     modules={[EffectCards]}
+                    // ref={swiperRef}
+                    onSwiper={(swiper) => setSwiperRef(swiper)}
                   >
                     {allCards.data?.map((c) => (
                       <SwiperSlide
@@ -180,6 +205,18 @@ export default function Home() {
                     ))}
                   </Swiper>
                 )}
+                <div className="flex w-full flex-row items-center overflow-hidden rounded-[5px] border border-[rgba(0,0,0,0.13)] bg-white p-3">
+                  <input
+                    placeholder="Search"
+                    onChange={(e) => setSearchString(e.currentTarget.value)}
+                    className="w-full text-[12px] focus-within:outline-none"
+                  />
+                  <Image
+                    src={search_icon}
+                    alt="Search"
+                    className="max-w-[15px]"
+                  />
+                </div>
               </div>
               <div className="absolute bottom-[14px] left-1/2 flex -translate-x-1/2 flex-col items-center gap-2">
                 <p className="font-sf text-sm font-bold">Follow Us</p>
