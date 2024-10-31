@@ -101,7 +101,7 @@ export default function Home() {
                 className={`absolute bottom-7 left-1/2 max-w-[280px] -translate-x-1/2 xs:bottom-10 xs:max-w-[340px]`}
               />
             </div>
-            <div className="section relative h-full bg-[url('/bg.jpeg')] bg-cover bg-center bg-no-repeat">
+            <div className="section section-3 relative h-full bg-[url('/bg.jpeg')] bg-cover bg-center bg-no-repeat">
               <Image
                 src={connection_title}
                 alt="Connection"
